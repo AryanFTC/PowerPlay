@@ -107,23 +107,23 @@ public class FirstBot extends LinearOpMode {
             }
         }
 
-        //Dpad right -> turret goes to 90 degrees (right)
+        // If Dpad is right then turret goes to a 90 degree angle (right) --> Aryan
         if (g2.b && Math.abs(turretR.getCurrentPosition() - Constants.turretTarget90) >= Constants.turretError) {
             Constants.setTurret(90, false, Constants.turretPower); // look at this method in Constants
         }
-        //Dpad left -> turret goes to -90 degrees (left)
+        //If Dpad is left then turret goes to -90 degree angle (left) --> Aryan
         else if (g2.x && Math.abs(turretR.getCurrentPosition() - Constants.turretTargetNeg90) >= Constants.turretError) {
             Constants.setTurret(-90, false, Constants.turretPower);
         }
-        //Dpad down -> turret goes to 180 degrees (backward)
+        //If Dpad is down then the turret goes to 180 degrees (backwards) --> Aryan
         else if (g2.y && Math.abs(turretR.getCurrentPosition() - Constants.turretTarget180) >= Constants.turretError) {
             Constants.setTurret(180, false, Constants.turretPower);
         }
-        //Dpad up -> turret goes to 0 degrees (forward)
+        //If is Dpad up then the turret goes to 0 degrees (forwards)
         else if (g2.a && Math.abs(turretR.getCurrentPosition()) >= Constants.turretError) {
             Constants.setTurret(0, false, Constants.turretPower);
         }
-        //If no dpads are pressed, left joystick will control turret
+        // If Dpad is not being triggered/pressed, then the left joystick is what will control the turret --> Aryan
         else if (!g2.x && !g2.a && !g2.y && !g2.b) {
             turretR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             // squared input, 0.5 speed
@@ -135,7 +135,7 @@ public class FirstBot extends LinearOpMode {
             turretR.setPower(turretInput);
         }
 
-        // press b -> resets all encoders
+        // B on the controller resets everything --> Aryan
         if (g2.dpad_right) {
             liftL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             liftL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
